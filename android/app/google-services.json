@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "426828972528",
+    "project_id": "raspberry-2d7fc",
+    "storage_bucket": "raspberry-2d7fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426828972528:android:c1ac8d84290466e51cdd35",
+        "android_client_info": {
+          "package_name": "com.example.okazawa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426828972528-i5a0o3ecg0u946jd0qjac0n0p27cqe4m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.okazawa",
+            "certificate_hash": "671957f751e630f3402f4dc5659f76c5818b046b"
+          }
+        },
+        {
+          "client_id": "426828972528-6uhkgab2ejjhs9mi6t6l6cclihk67n9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDydQumWM7NnhYZdy89vx9etDnOSw6oYw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426828972528-6uhkgab2ejjhs9mi6t6l6cclihk67n9m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "426828972528-dflt8pst70cs60leoivmv7rpfkh210qd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.okazawa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
