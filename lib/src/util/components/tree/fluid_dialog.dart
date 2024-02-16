@@ -78,7 +78,7 @@ class InfoDialog extends StatelessWidget {
                   color: Colors.grey[600],
                 ),
                 title: Text(
-                  'Términos y Condiciones',
+                  '利用規約',
                   style: TextStyle(
                     color: Colors.grey[600],
                   ),

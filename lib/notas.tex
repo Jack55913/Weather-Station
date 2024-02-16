@@ -18,3 +18,132 @@ keytool -list -v -keystore "C:\Users\HYSE02\.android\debug.keystore" -alias andr
 
 SHA1: 67:19:57:F7:51:E6:30:F3:40:2F:4D:C5:65:9F:76:C5:81:8B:04:6B
 SHA256: 43:70:4F:9C:1A:86:1A:19:E9:55:A4:42:A6:9A:02:58:1D:AA:5E:1A:71:DE:E6:B1:02:4E:15:12:17:F9:3C:A5
+
+
+
+
+
+
+
+
+
+
+
+
+
+replace GT with greater than symbol
+replace LT with less than symbol
+youtube description don't like angle brackets
+
+if you have not previous paired your phone with pico-w
+then turn on the pico-w then on your phone settings
+disconnect current wifi and connect to pico-w
+ssid is 'MYPICO' password is "1234567890"
+then turn off the pico-w
+
+1) run the flutter program in your phone
+2) press listen button
+3) start in thonny micropython program below (very important)
+4) press connect button
+5) press refresh to get the lm75 temperature from pico-w
+
+note: do not start pico-w micropython program before your flutter app
+
+wiring pico-w to lm75 from electricdollarstore.com
+lm75    pico w
+scl  --  gpio5
+sda  --  gpio4
+gnd  --  any gnd
+3.3v --  pin 36
+
+pico w micropython program
+import network
+import socket
+from machine import Pin, I2C
+from time import sleep
+
+i2c=I2C(0)
+ap=network.WLAN(network.AP_IF)
+ap.config(essid="MYPICO", password="1234567890")
+ap.active(True)
+
+while ap.active() == False:
+    pass
+
+s=socket.socket()
+s.bind(('0.0.0.0', 8000))
+s.listen(1)
+s2=socket.socket()
+s2.connect(('192.168.4.16', 9000))
+while True:
+    s1, remote=s.accept()
+    while True:
+        data=s1.readline()
+        buf=i2c.readfrom(0x48,2)
+        s2.write(buf)
+
+        
+flutter android program
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:convert';
+
+void main() =_GT_ runApp(GetMaterialApp(home: Home()));
+class Home extends StatelessWidget {
+late Socket socket;
+RxString picoData = ' '.obs;
+double value = 0;
+
+void send(String c){socket.add(utf8.encode(c));}
+  
+void connect() async {
+socket = await Socket.connect('192.168.4.1', 8000);} 
+
+// stackoverflow https://stackoverflow.com/questions/7...
+void handleClient(Socket client) {
+    print('server incoming connection from ${client.remoteAddress.address}:${client.remotePort}');
+    client.listen((data) {
+      value = ((data[0] LT_LT 3) | (data[1] GT__GT 5)) * 0.125;
+      picoData.value = value.toString();
+    }, onDone: () {
+      print("server done");
+    });
+    client.close();}
+
+  void listen() {
+    ServerSocket.bind('0.0.0.0', 9000).then((ServerSocket server) {
+      server.listen(handleClient);});}
+
+@override
+Widget build(context) {
+return Scaffold(
+appBar: AppBar(title: Text('2 way socket test with pico w'),),
+body:
+  Padding(padding: EdgeInsets.all(20.0),
+    child:Column(children: [
+    
+      Text('Press listen button then plugin the pico-w not before, then press connect button'), 
+      SizedBox(height:15),
+      ElevatedButton(child: Text('listen'), onPressed:(){ listen(); }),
+      SizedBox(height:15),
+      ElevatedButton(child: Text('connect'), onPressed:(){ connect(); }),
+      SizedBox(height:20),
+      
+      Row(children:[
+        SizedBox(width:20),
+        Text('LM75 temp from Pico W: ', style: TextStyle(fontSize:20, fontWeight:FontWeight.bold)),
+        Obx(() =_GT_ Text('${picoData}', style: TextStyle(fontSize:30, fontWeight:FontWeight.bold))),
+      ]),
+      
+      SizedBox(height:20),
+      ElevatedButton(child: Text('refresh'), onPressed:(){send('refresh\n');})
+      
+])));}}
+
+
+
+
+
+

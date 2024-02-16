@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:okazawa/src/model/auth/google_signin.dart';
-import 'package:okazawa/src/model/constants.dart'; 
+import 'package:okazawa/src/model/constants.dart';
 import 'package:okazawa/src/util/components/my_button.dart';
 import 'package:okazawa/src/util/components/my_textfield.dart';
 import 'package:okazawa/src/util/widgets/onboarding/onboarding_advise.dart';
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    '¡Bienvenido de vuelta, te hemos hechado mucho de menos!',
+                    'いらっしゃいませ、とても寂しかったです！',
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 16,
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                 // email textfield
                 MyTextField(
                   controller: emailController,
-                  hintText: 'Correo',
+                  hintText: 'メール',
                   obscureText: false,
                 ),
 
@@ -128,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                 // password textfield
                 MyTextField(
                   controller: passwordController,
-                  hintText: 'Contraseña',
+                  hintText: 'パスワード',
                   obscureText: true,
                 ),
 
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: '¿Olvidaste la contraseña?😱',
+                          text: 'パスワードを忘れましたか？😱',
                           style: TextStyle(
                             color: Colors.grey[600],
                             // fontWeight: FontWeight.bold,
@@ -173,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                     right: 20,
                   ),
                   child: MyButton(
-                    text: "Iniciar Sesión",
+                    text: "ログイン",
                     onTap: signUserIn,
                   ),
                 ),
@@ -191,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
-                          'O inicia sesión con:',
+                          'でログイン',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -274,7 +274,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿Aún no eres miembro?',
+                      'まだ登録していないのですか？',
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
@@ -283,7 +283,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: GestureDetector(
                         onTap: widget.onTap,
                         child: Text(
-                          'Regístrate ahora',
+                          '登録',
                           style: TextStyle(
                             color: yokohamagreen,
                             fontWeight: FontWeight.bold,

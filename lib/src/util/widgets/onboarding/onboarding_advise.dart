@@ -13,12 +13,12 @@ class OnboardingAdvise extends StatelessWidget {
         style: Theme.of(context).textTheme.bodySmall,
         children: [
           const TextSpan(
-            text: 'Al iniciar sesión aceptas ',
+            text: '登録した時点で',
           ),
 
           /// https://stackoverflow.com/questions/43583411/how-to-create-a-hyperlink-in-flutter-widget
           TextSpan(
-            text: 'nuestros términos y condiciones y política de privacidad',
+            text: '利用規約に書かれた内容に同意したものとしま',
             style: TextStyle(
               color: yokohamagreen,
               fontWeight: FontWeight.bold,

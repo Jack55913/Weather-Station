@@ -65,8 +65,8 @@ class _MyAppState extends State<MyApp> {
               FirebaseAnalyticsObserver(analytics: analytics),
             ],
             // ESTO ES LO PRIMERO QUE EJECUTA EL CÓDIGO:
-            home: const AuthPage(),
-            // home: const HomePageJuly(),
+            // home: const AuthPage(),
+            home: const Mar(),
             routes: {
               '/home': (context) => const Mar(),
             },

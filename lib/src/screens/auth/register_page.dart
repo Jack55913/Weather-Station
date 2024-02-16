@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:okazawa/src/model/auth/google_signin.dart';
-import 'package:okazawa/src/model/constants.dart'; 
+import 'package:okazawa/src/model/constants.dart';
 import 'package:okazawa/src/util/widgets/onboarding/onboarding_advise.dart';
 import 'package:okazawa/src/util/components/my_button.dart';
 import 'package:okazawa/src/util/components/my_textfield.dart';
@@ -103,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                 // let's create an account for you
                 Text(
-                  'Hagámos una cuenta para tí 😊',
+                  'アカウントを作りましょう 😊',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 16,
@@ -115,7 +115,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // email textfield
                 MyTextField(
                   controller: emailController,
-                  hintText: 'Correo',
+                  hintText: 'メール',
                   obscureText: false,
                 ),
 
@@ -124,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // password textfield
                 MyTextField(
                   controller: passwordController,
-                  hintText: 'Contraseña',
+                  hintText: 'パスワード',
                   obscureText: true,
                 ),
 
@@ -133,7 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // confirm password textfield
                 MyTextField(
                   controller: confirmPasswordController,
-                  hintText: 'Confirmar Contraseña',
+                  hintText: 'パスワード再入力',
                   obscureText: true,
                 ),
 
@@ -146,7 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     right: 20,
                   ),
                   child: MyButton(
-                    text: "Registrarse",
+                    text: "ユーザー登録",
                     onTap: signUserUp,
                   ),
                 ),
@@ -164,7 +164,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
-                          'O continua con:',
+                          'または続行してください',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       ),
@@ -247,7 +247,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿Ya tienes una cuenta?',
+                      'すでにアカウントをお持ちですか？',
                       style: TextStyle(color: Colors.grey[700]),
                     ),
                     const SizedBox(width: 4),
@@ -256,7 +256,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: GestureDetector(
                         onTap: widget.onTap,
                         child: Text(
-                          'Inicia sesión ahora',
+                          'ログイン',
                           style: TextStyle(
                             color: yokohamagreen,
                             fontWeight: FontWeight.bold,
